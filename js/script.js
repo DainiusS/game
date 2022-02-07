@@ -18,11 +18,11 @@ function computerPlay(){
 
 // Gets user's input, checks if it is proper and converts it to uppercase
 function usersPlay(){
-    input = prompt("choose between: ROCK PAPER SCISSORS").toUpperCase();
+    input = prompt("choose among: ROCK PAPER SCISSORS").toUpperCase();
     if (input == "ROCK" || input == "PAPER" || input == "SCISSORS") {
         return input;
     } else {
-       alert("You entered ivalid selection! Try again");
+       alert("You entered invalid selection! Try again :)");
        return usersPlay();
     }
     
@@ -33,21 +33,60 @@ function playRound(playerSelection, computerSelection){
     playerSelection = usersPlay();
     computerSelection = computerPlay();
     console.log (`Your selection: ${playerSelection}`);
-    console.log (`Computers selection: ${computerSelection}`);
+    console.log (`Computer's selection: ${computerSelection}`);
+// outcomes 1 - user wins, 2 - computer wins, 3 - it's a tie    
+    let outcome = 0;
     if (playerSelection == "ROCK" && computerSelection == "SCISSORS"){
-        return "You win! ROCK beats SCISSORS!";
+        console.log("You win! ROCK beats SCISSORS!");
+        outcome = 1;
     } else if (playerSelection == "SCISSORS" && computerSelection == "ROCK"){
-        return "You lose! ROCK beats SCISSORS!";
+        console.log("You lose! ROCK beats SCISSORS!")
+        outcome = 2;
     } else if (playerSelection == "PAPER" && computerSelection == "SCISSORS"){
-        return "You lose! SCISSORS beats PAPER!";
+        console.log("You lose! SCISSORS beat PAPER!");
+        outcome = 2;
     } else if (playerSelection == "SCISSORS" && computerSelection == "PAPER"){
-        return "You win! SCISSORS beats PAPER!";
+        console.log("You win! SCISSORS beat PAPER!");
+        outcome = 1;
     } else if (playerSelection == "PAPER" && computerSelection == "ROCK"){
-        return "You win! PAPER beats ROCK!";
+        console.log("You win! PAPER beats ROCK!");
+        outcome = 1;
     } else if (playerSelection == "ROCK" && computerSelection == "PAPER"){
-        return "You lose! PAPER beats ROCK!";
+        console.log("You lose! PAPER beats ROCK!");
+        outcome = 2;
     } else if (playerSelection == computerSelection) {
-        return "It's a tie!";
+        console.log("It's a tie!");
+        outcome = 3;
     }
+    return outcome;
 }
-console.log(playRound());
+// Let's play 5 rounds
+function game(){
+    let userWins = 0;
+    let computerWins = 0;
+    for (let i = 0; i < 5; i++){
+        let x = playRound();
+        if (x == 1){
+            userWins++;
+        } else if (x == 2){
+            computerWins++;
+        } else if (x == 3){
+            userWins = userWins;
+            computerWins = computerWins;
+        }
+    }
+    if(userWins > computerWins){
+        console.log(`User wins! ${userWins} to ${computerWins}!`);
+    } else if (userWins < computerWins) {
+        console.log(`Computer wins ${computerWins} to ${userWins}!`)
+    } else {
+        console.log(`It's a tie ${computerWins} to ${userWins}!`)
+    }
+
+}
+
+game();
+
+
+
+
