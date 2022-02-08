@@ -1,12 +1,10 @@
 // Picks random number from 1 (inclusive) to 3 (inclusive) 
 function getRandomNumber() {
-    randomNumber = Math.floor(Math.random() * 3) + 1;
-    return randomNumber;
+    return Math.floor(Math.random() * 3) + 1;
 }
 
 // Assigns selection to random number
-function computerPlay(){
-    const selectedNumber = getRandomNumber();
+function computerPlay(selectedNumber){
     if (selectedNumber == 1){
         return "ROCK";
     } else if (selectedNumber == 2) {
@@ -17,8 +15,7 @@ function computerPlay(){
 }
 
 // Gets user's input, checks if it is proper and converts it to uppercase
-function usersPlay(){
-    input = prompt("choose among: ROCK PAPER SCISSORS").toUpperCase();
+function usersPlay(input){
     if (input == "ROCK" || input == "PAPER" || input == "SCISSORS") {
         return input;
     } else {
@@ -30,8 +27,6 @@ function usersPlay(){
 
 // Plays a round
 function playRound(playerSelection, computerSelection){
-    playerSelection = usersPlay();
-    computerSelection = computerPlay();
     console.log (`Your selection: ${playerSelection}`);
     console.log (`Computer's selection: ${computerSelection}`);
 // outcomes 1 - user wins, 2 - computer wins, 3 - it's a tie    
@@ -60,12 +55,12 @@ function playRound(playerSelection, computerSelection){
     }
     return outcome;
 }
-// Let's play 5 rounds
-function game(){
+// Let's play a few rounds
+function game(timesToPlay){
     let userWins = 0;
     let computerWins = 0;
-    for (let i = 0; i < 5; i++){
-        let x = playRound();
+    for (let i = 0; i < timesToPlay; i++){
+        let x = playRound(usersPlay(prompt("choose among: ROCK PAPER SCISSORS").toUpperCase()), computerPlay(getRandomNumber()));
         if (x == 1){
             userWins++;
         } else if (x == 2){
@@ -85,8 +80,4 @@ function game(){
 
 }
 
-game();
-
-
-
-
+game(prompt("How many times you want to play?"));
