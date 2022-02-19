@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/script.js" defer></script>
+    <link rel="stylesheet" href="./style/style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <script src="./js/script.js"></script>
+    <div id="main">
+        <h1>LET'S PLAY ROCK, PAPER, SCISSORS!</h1>
+        <h2>Choose your weapon</h2>
+        <div class="buttons">
+            <button class="actionBtn" id="rock"></button>
+            <button class="actionBtn" id="paper"></button>
+            <button class="actionBtn" id="scissors"></button>
+        </div>
+        <div class="choices">
+            <div id="your-choice">
+                <div>Your choice</div>
+                <img id="humans" src="./images/you.jpg" alt="Humans choice">
+            </div>
+            <h3 id="round-winner"></h3>
+            <div id="computers-choice">
+                <div>Computers choice</div>
+                <img id="computers" src="./images/computer.jpg" alt="Computer's choice">
+            </div>
+        </div>
+        <h3>Who wins 5 times is the ultimate winner</h3>
+    </div>
+    <h3>Score</h3>
+    <div class="score">
+        <div id="humans-victories">0</div>
+        <div id="computers-victories">0</div>
+    </div>
+    <div id="winner">
+        <h3 id="winner-announced"></h3>
+        <img id="ultimateWinner" src="" alt="The ultimate winner">
+        <button id="refresh">Play again</button>
+    </div>   
 </body>
 </html>
