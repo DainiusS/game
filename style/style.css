@@ -1,15 +1,15 @@
 body {
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     padding: 0;
     font-size: 1rem;
     text-align: center;
-    background-color: aquamarine;
+    background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
 }
@@ -21,6 +21,8 @@ body {
     flex-wrap: wrap;
     gap: 30px;
     width: 100vw;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 #rock, #paper, #scissors {
@@ -51,6 +53,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 40px;
+    margin-bottom: 30px;
     }
 
 .score {
@@ -58,15 +61,31 @@ body {
     font-size: 60px;
     font-weight: bold;
     padding: 0;
-    margin: 0;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+h1 {
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
 h3 {
-    margin: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
     padding 0;
+}
+
+h4 {
+    margin: 0;
+    padding: 0;
 }
 
 #humans, #computers {
@@ -85,11 +104,14 @@ h3 {
 #ultimateWinner {
     height: 500px;
     width: 500px;
+    border-radius: 20%;
 }
 
 #refresh {
     height: 100px;
     width: 100px;
     padding: 0;
-    margin: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10%;
 }

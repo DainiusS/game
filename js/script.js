@@ -1,28 +1,3 @@
-// // Let's play a few rounds
-// function game(timesToPlay){
-//     let userWins = 0;
-//     let computerWins = 0;
-//     for (let i = 0; i < timesToPlay; i++){
-//         let x = playRound(usersPlay(prompt("choose among: ROCK PAPER SCISSORS").toUpperCase()), computerPlay(getRandomNumber()));
-//         if (x == 1){
-//             userWins++;
-//         } else if (x == 2){
-//             computerWins++;
-//         } else if (x == 3){
-//             userWins = userWins;
-//             computerWins = computerWins;
-//         }
-//     }
-//     if(userWins > computerWins){
-//         console.log(`User wins! ${userWins} to ${computerWins}!`);
-//     } else if (userWins < computerWins) {
-//         console.log(`Computer wins ${computerWins} to ${userWins}!`)
-//     } else {
-//         console.log(`It's a tie ${computerWins} to ${userWins}!`)
-//     }
-
-//}
-
 const btn = document.querySelectorAll(".actionBtn");
 const img = document.querySelector("#humans");
 const img2 = document.querySelector("#computers");
@@ -35,17 +10,14 @@ const winnerImage = document.querySelector("#ultimateWinner");
 const main = document.querySelector("#main");
 const winnerAnnounced = document.querySelector("#winner-announced");
 
-
+// Starts new game
 refreshButton.addEventListener("click", () => location.reload());
 
-
-// Assigns selection to random number
-
+// Assigns image to computers choice
 function getComputersNumber() {
     let computersNumber = Math.floor(Math.random() * 3) + 1;
     img2.src=`./images/${computersNumber}.jpg`;
     return computersNumber;
-
 }
 
 // Represents humans choice in a picture
@@ -64,7 +36,7 @@ function getHumansChoice(item){
 
 // Checks who won a round
 function checkWhoWonRound (playerSelection, computerSelection){
-    // outcomes 1 - user wins, 2 - computer wins, 3 - it's a tie    
+        // outcomes 1 - user wins, 2 - computer wins, 3 - it's a tie    
         let outcome;
         if (playerSelection == 1 && computerSelection == 3){
             outcome = 1;
@@ -97,7 +69,7 @@ function checkWhoWonRound (playerSelection, computerSelection){
         }
 }
 
-
+// Counts score
 let humanVictories = 0;
 let computerVictories = 0;
 
@@ -114,23 +86,23 @@ function countScore(num){
     compVic.textContent = `${computerVictories}`;
 }
 
-function checkIfOver(h, com){
-    if (h == 5){
+// Tracks the score and ends game when one of the palyers reaches 5 points
+function checkIfOver(humansScore, comScore){
+    if (humansScore == 5){
         main.style.display = "none";
         ultimateWinner.style.display = "flex";
         winnerImage.src = "./images/you.jpg";
-        winnerAnnounced.textContent = "YOU WON";
-    } else if (com == 5) {
+        winnerAnnounced.textContent = "YOU WON!";
+    } else if (comScore == 5) {
         main.style.display = "none";
         ultimateWinner.style.display = "flex";
         winnerImage.src = "./images/computer.jpg";
-        winnerAnnounced.textContent = "COMPUTER WON";
+        winnerAnnounced.textContent = "COMPUTER WON!";
     }
     
 }
 
-
-
+// Initiates everything
 btn.forEach(function(button) {
     button.addEventListener("click", () =>{
         let a = getComputersNumber();
